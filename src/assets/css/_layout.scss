@@ -1,0 +1,17 @@
+@import "./_mixin";
+
+.section{
+    z-index: 0;
+    position: relative;
+    margin-top: 100px;
+}
+.container{
+
+}
+.footer{
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: $gray;
+    color: $white;
+}

@@ -1,0 +1,126 @@
+$fontFamilySet0: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'Meiryo', "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
+$mqSmall: 750px;
+$mqLarge: 1600px;
+$mqMaxLarge: 1920px;
+
+
+
+//color
+$white       : #FFFFFF;
+$black       : #212121;
+$gray        : #4D4D4D;
+
+//vw px 指定
+@mixin mqPcPxSpVw($prop,$numberPc,$numberSp) {
+  @if(type-of($numberPc) == list){
+    @media all and (min-width: 640px) {
+      $pxNumber:();
+      @for $i from 1 through length($numberPc) {
+        @if(type-of(nth($numberPc,$i)) == number){
+          $pxNumber:append($pxNumber,nth($numberPc,$i) + px);
+        } @else{
+          $pxNumber:append($pxNumber,nth($numberPc,$i));
+        }
+      }
+      #{$prop} : $pxNumber;
+    }
+    @media all and (max-width: 640px) {
+      $vwNumber:();
+      @for $i from 1 through length($numberSp) {
+        @if(type-of(nth($numberSp,$i)) == number){
+          $vwNumber:append($vwNumber,nth($numberSp,$i)/750*100vw);
+        } @else{
+          $vwNumber:append($vwNumber,nth($numberSp,$i));
+        }
+      }
+      #{$prop} : $vwNumber;
+    }
+  } @else {
+    @media all and (min-width: 640px) {
+      #{$prop} : $numberPc + px;
+    }
+    @media all and (max-width: 640px) {
+      #{$prop} : $numberSp/750*100vw;
+    }
+  }
+}
+
+
+
+@mixin mqPcSizeM($prop,$number) {
+  #{$prop} : $number + px;
+  @media all and (max-width: 1281px) {
+    #{$prop} : $number / 1280 * 100%;
+  }
+}
+@mixin mqPcSizeL($prop,$number) {
+  @media all and (min-width: 1961px) {
+    #{$prop} : $number + px;
+  }
+  @media all and (max-width: 1960px) {
+    #{$prop} : $number / 1960 * 100%;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    html.android &{ transform: translateY(-2px);}
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+
+@mixin clearfix() {
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// ==========================================
+
+// 想定する画面サイズを超えたとき
+@mixin mqExceed($size) {
+	@media (min-width: $size) {
+		@content;
+	}
+}
+// 想定する画面サイズ以下のとき
+@mixin mqSmaller($size) {
+	@media (max-width: $size) {
+		@content;
+	}
+}
+
+
+
+$easeInSine:cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeInQuart:cubic-bezier(0.895, 0.03, 0.685, 0.22);;
+
+$easeInExpo:cubic-bezier(.95, .05, .795, .035);
+$easeOutExpo:cubic-bezier(.19, 1, .22, 1);
+$easeInOutExpo:cubic-bezier(1, 0, 0, 1);
+
+$easeInOutSine : cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInOutQuad : cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$easeInOutQuart : cubic-bezier(0.77, 0, 0.175, 1);
+
+$easeOutSine :cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeOutQuad : cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeOutExpo : cubic-bezier(0.19, 1, 0.22, 1);
+$easeOutQuart : cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeOutQuint : cubic-bezier(0.23, 1, 0.32, 1);
+$easeoriginal : cubic-bezier(0.18, 1.01, 0.29, 1.04);
+
+$easeOutCirc:cubic-bezier(0.075, 0.82, 0.165, 1);

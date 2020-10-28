@@ -1,0 +1,35 @@
+@import "./_mixin";
+/* utils  PC SP 共通
+***********************************/
+.clearfix:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+.hide{display: none;}
+
+/* １行まるめ
+******************/
+.text-line-1{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 改行あり
+******************/
+.ws-pl{
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.tategaki{
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+.bold{font-weight: bold;}
+.width100{width: 100%;}
+.font-size0{font-size: 0;}
+.disabled-click{
+  cursor: default;
+  pointer-events:none;
+}
