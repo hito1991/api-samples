@@ -4,6 +4,7 @@ import {SectionContainer,PageTitle} from '../modules/common';
 import {Row,Card,Form,Button} from 'react-bootstrap'
 import axios from 'axios';
 import YouTube from 'react-youtube';
+import { Header } from '../modules/common';
 
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -76,6 +77,7 @@ class Api2 extends Component {
         return (
             <>
 
+                <Header></Header>
 
                 <SectionContainer sectionName="api2-top">
                     <PageTitle>YouTube</PageTitle>

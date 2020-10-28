@@ -22,15 +22,15 @@ class App extends Component {
   render(){
     return (
       <BrowserRouter>
-
         <Switch>
+        
         {Routers.map(route => {
           return (
             <Route 
             key={route.id}
             exact
             path={route.path}
-            render={props=>{ 
+            render={props=>{               
               if(route.id==0) return ( <route.component {...props} {...this.state} /> ) 
               else return ( <route.component /> ) 
             }}

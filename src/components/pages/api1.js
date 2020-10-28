@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {SectionContainer,PageTitle} from '../modules/common';
 import {Form,Button} from 'react-bootstrap'
+import { Header } from '../modules/common';
 
 
 import { GoogleMap, useLoadScript,LoadScript } from "@react-google-maps/api";
@@ -70,10 +71,10 @@ class Api1 extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
 
                 <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY} />
-
+                <Header></Header>
                 <SectionContainer sectionName="api1-top">
                     <PageTitle>Google Map</PageTitle>
                 </SectionContainer>
@@ -124,7 +125,7 @@ class Api1 extends Component {
                 }
 
                 </SectionContainer>
-            </React.Fragment>
+            </>
         );
     }
 }
