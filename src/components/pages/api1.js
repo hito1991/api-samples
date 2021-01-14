@@ -22,13 +22,13 @@ const MapBlock = styled.div`
     }
 `
 
-class Api1 extends Component {
+export class Api1 extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             prefecturesList:['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'],
-            
+
             prefectures: "選択してください",
             address: "",
 
@@ -54,6 +54,7 @@ class Api1 extends Component {
         e.preventDefault();
         var result = await Geocode.fromAddress(this.state.prefectures+this.state.address).catch((error)=>{
             //エラー処理
+            console.log(error)
         });
         if(result){
             let mapConfig = Object.assign({}, this.state.mapConfig);
@@ -84,18 +85,18 @@ class Api1 extends Component {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>都道府県</Form.Label>
                         <Form.Control name="prefectures" value={this.state.prefectures} onChange={this.handleChange} as="select" >
-                            
+
                             {this.state.prefecturesList.map((data,i) => {
                                 return (
                                     <option value={data} key={i}>{data}</option>
                                 );
                             })}
                         </Form.Control>
-                    </Form.Group> 
+                    </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>市区町村・番地</Form.Label>
                         <Form.Control type="text" name="address" value={this.state.address} onChange={this.handleChange} placeholder="住所を入力してください。" />
-                    </Form.Group> 
+                    </Form.Group>
                     <Button variant="primary" onClick={this.handleSubmit}>
                         Submit
                     </Button>
@@ -113,8 +114,8 @@ class Api1 extends Component {
                                             this.setState({map:map})
                                         }}
                                         onUnmount={map => {
-                                            
-                        
+
+
                                         }}
                                     >
                                     </GoogleMap>
@@ -129,4 +130,4 @@ class Api1 extends Component {
         );
     }
 }
-export default Api1;
+// export default Api1;

@@ -35,7 +35,7 @@ const RowLayout = styled.div`
     }
 `
 
-class Api2 extends Component {
+export class Api2 extends Component {
 
     constructor(props) {
         super(props);
@@ -130,4 +130,4 @@ class Api2 extends Component {
         );
     }
 }
-export default Api2;
+// export default Api2;
